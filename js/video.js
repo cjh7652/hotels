@@ -85,3 +85,28 @@ document.addEventListener('keypress', function(e){
     }
   }
 })
+//어게인
+let setId=setInterval(function(){
+  if(mainVideo.ended){
+    document.querySelector('.m-again').style.display='block';
+    videoPlay='off';
+    document.querySelector('.pauseIcon i').className='fas fa-play';
+    clearInterval(setId)
+  }
+},100);
+
+//리플레이 비디오
+document.querySelector('.m-again').addEventListener('click', function(){
+  videoPlay='on';
+  mainVideo.play();
+  document.querySelector('.pauseIcon i').className='fas fa-pause';
+  this.style.display='none';
+})
+
+//다음섹션이동
+let nextTop=document.querySelector('#section2').offsetTop;
+/* console.log(nextTop) */
+
+document.querySelector('.nextIcon').addEventListener('click', function(){
+  window.scrollTo({top: nextTop, behavior:'smooth'});
+})
